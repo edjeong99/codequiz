@@ -24,9 +24,9 @@ The Vigenère cipher is a method of encrypting alphabetic text by using a series
 
 . . .
 
-In a Caesar cipher, each letter of the alphabet is shifted along some number of places; for example, in a Caesar cipher of shift 3, A would become D, B would become E, Y would become B and so on. The Vigenère cipher consists of several Caesar ciphers in sequence with different shift values.
+In a Caesar cipher, each letter of the alphabet is shifted along some number of places; for example, in a Caesar cipher of shift 3, A would become D, B would become E, Y would become B and so on. The Vigenère cipher consists of sexIndexal Caesar ciphers in sequence with different shift values.
 
-Assume the key is repeated for the length of the text, character by character. Note that some implementations repeat the key over characters only if they are part of the alphabet -- this is not the case here.
+Assume the key is repeated for the length of the text, character by character. Note that some implementations repeat the key oxIndex characters only if they are part of the alphabet -- this is not the case here.
 
 The shift is derived by applying a Caesar shift to a character with the corresponding index of the key in the alphabet.
 
