@@ -1,11 +1,7 @@
 function pathFinder(maze) {
+  // board is 2D array representing maze
   let board = [];
-
-  for (let line of maze.split('\n')) {
-    //   console.log(line);
-    board.push([...line]);
-  }
-  // console.log(board);
+  for (let c of maze.split('\n')) board.push([...c]);
 
   let size = board.length;
   let end = size - 1;
@@ -28,7 +24,7 @@ function pathFinder(maze) {
     toVisit.delete(pos);
     console.log(pos);
     let [x, y] = pos;
-    board[x][y] = '*'; // mark as visited;
+    // board[x][y] = '*'; // mark as visited;
     for ([x, y] of [
       [x + 1, y],
       [x - 1, y],
@@ -37,7 +33,10 @@ function pathFinder(maze) {
     ]) {
       if (end === x && end === y) return true;
       if (x < 0 || y < 0 || x >= size || y >= size) continue;
-      if (board[x][y] !== '*' && board[x][y] !== 'W') toVisit.add([x, y]);
+      if (board[x][y] === '.') {
+        toVisit.add([x, y]);
+        board[x][y] = '*'; // mark as visited;
+      }
     }
   }
   return false;
@@ -46,10 +45,10 @@ function pathFinder(maze) {
 console.log(
   pathFinder(
     `......
-    ......
-    ......
-    ......
-    .....W
-    ....W.`
+......
+......
+......
+.....W
+....W.`
   )
 );
